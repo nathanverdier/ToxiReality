@@ -1,0 +1,19 @@
+{
+    "name": "Project.Scripts.Dialog",
+    "rootNamespace": "",
+    "references": [
+        "MixedReality.Toolkit.UXCore"
+    ],
+    "includePlatforms": [
+        "Editor",
+        "WindowsStandalone64"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

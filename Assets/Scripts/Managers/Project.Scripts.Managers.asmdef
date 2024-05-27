@@ -1,0 +1,21 @@
+{
+    "name": "Project.Scripts.Managers",
+    "rootNamespace": "",
+    "references": [
+        "Project.Scripts.Api",
+        "Project.Scripts.Dialog",
+        "Project.Scripts.Photo",
+        "UnityEngine",
+        "UnityEngine.UI",
+        "MixedReality.Toolkit.UXCore"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
