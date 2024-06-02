@@ -8,34 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static Assets.Scripts.Api.ApiService;
 
 namespace Assets.Scripts.Managers
 {
     public class DialogManager : MonoBehaviour
     {
         private IDialogService _dialogService;
-        private IApiService _apiService;
-        private IPhotoService _photoService;
+        
+        private RecognitionRoutineManager _regcognitionRoutine;
+
+        
 
         private void Start()
         {
             var dialogPool = FindObjectOfType<DialogPool>();
+            _regcognitionRoutine = FindObjectOfType<RecognitionRoutineManager>();
+
             if (dialogPool != null)
             {
                 _dialogService = new DialogService(dialogPool);
-                _apiService = FindObjectOfType<ApiService>();
-                Debug.Log(_apiService);
-                _photoService = new PhotoService();
-                Debug.Log(_photoService);
-
-                if (_apiService == null)
-                {
-                    Debug.LogError("ApiService component not found in the scene.");
-                }
-                else
-                {
-                    _dialogService.ShowDialog("Welcome to Lucie's App!", "This app is a photo capture test for my study project ToxiReality", "Good Luck", OnOkButtonClicked);
-                }
+                _dialogService.ShowDialog("Welcome to Lucie's App!", "This app is a photo capture test for my study project ToxiReality", "Good Luck", OnOkButtonClicked);
             }
             else
             {
@@ -45,30 +38,15 @@ namespace Assets.Scripts.Managers
 
         private void OnOkButtonClicked()
         {
-            _photoService.CapturePhoto(photoData =>
+            // Start recognition routine
+            if (_regcognitionRoutine != null)
             {
-                if (photoData != null)
-                {
-                    StartCoroutine(_apiService.GetAccessToken(accessToken =>
-                    {
-                        StartCoroutine(_apiService.MakeHttpRequest(accessToken, photoData, response =>
-                        {
-                            Debug.Log("Response: " + response);
-                        }, error =>
-                        {
-                            Debug.LogError("HTTP Request Error: " + error);
-                        }));
-                    }, error =>
-                    {
-                        Debug.LogError("Token Request Error: " + error);
-                    }));
-                }
-                else
-                {
-                    Debug.LogError("Photo capture failed.");
-                }
-            });
+                _regcognitionRoutine.StartRepeatingAction();
+            }
+            else
+            {
+                Debug.LogError("RepeatedActionHandler component not found in the scene.");
+            }
         }
     }
-
 }

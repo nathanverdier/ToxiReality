@@ -10,7 +10,7 @@ namespace Assets.Scripts.Api
     {
         public IEnumerator GetAccessToken(Action<string> onSuccess, Action<string> onError)
         {
-            WWWForm form = new WWWForm();
+            WWWForm form = new();
             form.AddField("client_id", "eAf8z4vS3B47LGatTn34q38IRdJrNNvc");
             form.AddField("client_secret", "n_oChtKZlpXG60n-N1V4LwXkaFYbvRGoWT-4Lsk8nwPo3aXIEONevoHUa8uMEN4g");
             form.AddField("audience", "https://toxiapi/");
