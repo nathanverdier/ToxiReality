@@ -36,12 +36,11 @@ namespace Assets.Scripts.Api
 
         public IEnumerator MakeHttpRequest(string accessToken, byte[] imageData, Action<string> onSuccess, Action<string> onError)
         {
-            UnityWebRequest webRequest = new UnityWebRequest("http://localhost:8081/v1/identity", "POST");
-            webRequest.SetRequestHeader("Content-Type", "image/jpeg");
-            webRequest.SetRequestHeader("Authorization", "Bearer " + accessToken);
+            List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+            formData.Add(new MultipartFormFileSection("image", imageData, "image.jpg", "image/jpeg"));
 
-            UploadHandlerRaw uploadHandler = new UploadHandlerRaw(imageData);
-            webRequest.uploadHandler = uploadHandler;
+            UnityWebRequest webRequest = UnityWebRequest.Post("https://codefirst.iut.uca.fr/containers/ToxiTeam-toxi-api/v1/identity", formData);
+            webRequest.SetRequestHeader("Authorization", "Bearer " + accessToken);
             webRequest.downloadHandler = new DownloadHandlerBuffer();
 
             yield return webRequest.SendWebRequest();
@@ -56,6 +55,8 @@ namespace Assets.Scripts.Api
                 onSuccess?.Invoke(responseData);
             }
         }
+
+
 
         [Serializable]
         public class AccessTokenResponse

@@ -1,0 +1,22 @@
+{
+    "name": "Project.Scripts",
+    "rootNamespace": "",
+    "references": [
+        "MixedReality.Toolkit.UXCore",
+        "UnityEngine",
+        "UnityEngine.UI",
+        "UnityEngine.Networking"
+    ],
+    "includePlatforms": [
+        "Editor",
+        "WindowsStandalone64"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,12 +1,9 @@
-using MixedReality.Toolkit.UX;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using MixedReality.Toolkit.UX;
 
-namespace Assets.Scripts.Dialog
+namespace Assets.Scripts.StartMessage
 {
-    public class DialogService : IDialogService
+    public class DialogService : IStartMessageService
     {
         private readonly DialogPool _dialogPool;
 
@@ -15,7 +12,7 @@ namespace Assets.Scripts.Dialog
             _dialogPool = dialogPool;
         }
 
-        public void ShowDialog(string header, string body, string positiveButtonText, Action onPositiveButtonClicked)
+        public void ShowMessage(string header, string body, string positiveButtonText, Action onPositiveButtonClicked)
         {
             var dialog = _dialogPool.Get()
                 .SetHeader(header)

@@ -3,10 +3,9 @@
     "rootNamespace": "",
     "references": [
         "Project.Scripts.Api",
-        "Project.Scripts.Dialog",
+        "Project.Scripts.StartMessage",
         "Project.Scripts.Photo",
-        "UnityEngine",
-        "UnityEngine.UI",
+        "Project.Scripts",
         "MixedReality.Toolkit.UXCore"
     ],
     "includePlatforms": [],

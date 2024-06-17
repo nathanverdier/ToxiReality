@@ -30,6 +30,7 @@ public class PhotoCaptureObjectInitializer : MonoBehaviour
             return;
         }
         Debug.Log("Camera authorization granted");
+        InitializePhotoCapture();
     }
 
     public void InitializePhotoCapture()

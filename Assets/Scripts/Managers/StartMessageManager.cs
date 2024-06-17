@@ -1,20 +1,12 @@
-using Assets.Scripts.Api;
-using Assets.Scripts.Dialog;
-using Assets.Scripts.Photo;
 using MixedReality.Toolkit.UX;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Assets.Scripts.StartMessage;
 using UnityEngine;
-using static Assets.Scripts.Api.ApiService;
 
 namespace Assets.Scripts.Managers
-{
-    public class DialogManager : MonoBehaviour
+{ 
+    public class StartMessageManager : MonoBehaviour
     {
-        private IDialogService _dialogService;
+        private IStartMessageService _dialogService;
         
         private RecognitionRoutineManager _regcognitionRoutine;
 
@@ -28,7 +20,7 @@ namespace Assets.Scripts.Managers
             if (dialogPool != null)
             {
                 _dialogService = new DialogService(dialogPool);
-                _dialogService.ShowDialog("Welcome to Lucie's App!", "This app is a photo capture test for my study project ToxiReality", "Good Luck", OnOkButtonClicked);
+                _dialogService.ShowMessage("Welcome to Lucie's App!", "This app is a photo capture test for my study project ToxiReality", "Good Luck", OnOkButtonClicked);
             }
             else
             {

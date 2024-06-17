@@ -1,7 +1,7 @@
 {
     "name": "Project.Scripts.Api",
     "references": [
-        "UnityEngine.Networking"
+        "Project.Scripts"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
