@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 3675575540793732397, guid: d36d8453423b38049864fe49109e3101, type: 3}
+  textPrefab: {fileID: 9182401632514000036, guid: 43f5a8d5bf2969945a2d127a312ddeff, type: 3}
 --- !u!4 &944208016
 Transform:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ GameObject:
   - component: {fileID: 1472706397}
   - component: {fileID: 1472706398}
   m_Layer: 0
-  m_Name: StartMessgeManager
+  m_Name: StartMessageManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2078602209
 MonoBehaviour:
   m_ObjectHideFlags: 0

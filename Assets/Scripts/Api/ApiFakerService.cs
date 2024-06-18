@@ -17,7 +17,7 @@ namespace Assets.Scripts.Api
         public IEnumerator MakeHttpRequest(string accessToken, byte[] imageData, Action<string> onSuccess, Action<string> onError)
         {
             yield return new WaitForSeconds(0.5f);
-            string fakeJsonResponse = "{ \"face_locations\":[{\"x1\":12,\"x2\":24,\"y1\":24,\"y2\":12}], \"face_names\":[\"Toto\"] }";
+            string fakeJsonResponse = "{ \"face_locations\":[{\"x1\":12,\"x2\":24,\"y1\":24,\"y2\":12}], \"face_names\":[\"Lucie\"] }";
             onSuccess?.Invoke(fakeJsonResponse);
         }
 

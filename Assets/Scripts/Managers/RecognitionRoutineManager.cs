@@ -26,6 +26,7 @@ namespace Assets.Scripts.Managers
     public class RecognitionRoutineManager : MonoBehaviour
     {
         public GameObject cubePrefab;
+        public GameObject textPrefab;
 
         private bool isRepeating = false;
         private float repeatInterval = 5f; // Intervalle de 500 ms
@@ -129,22 +130,30 @@ namespace Assets.Scripts.Managers
                 Location location = faceLocations[i];
                 string name = faceNames[i];
 
-                // int x = (location.x1 + location.x2) / 2;
-                // int y = (location.y1 + location.y2) / 2;
-                int x = 0;
-                int y = 0;
+                // Adjust the coordinates
 
-                GameObject pc = (GameObject)Instantiate(cubePrefab, new Vector3(x, y, 10), Quaternion.identity);
+                // Original API coordinates (origin in the top-left corner)
+                int originalX = (location.x1 + location.x2) / 2;
+                int originalY = (location.y1 + location.y2) / 2;
+
+                Debug.Log("location: " + originalX + "," + originalY);
+
+                // New coordinates (origin in the center of the image)
+                int centeredX = originalX - (1920 / 2);
+                int centeredY = (1080 / 2) - originalY; // Invert Y coordinate
+
+                // Coordinates in Unity plan (10x5.625 max)
+                float x = (centeredX / 1920.0f) * 10.0f;
+                float y = (centeredY / 1080.0f) * 5.625f;
+
+                Debug.Log("positions : " + x + ", " + y);
+
+                GameObject pc = (GameObject)Instantiate(cubePrefab, new Vector3(x, y, 20), Quaternion.identity);
                 pc.transform.Rotate(new Vector3(-90, 180, -90));
 
                 // Create text next to the cube
-                GameObject textObject = new GameObject("NameText");
-                textObject.transform.position = new Vector3(0, 0, 2) + Vector3.up * 1f; // Position the text slightly above the cube
+                GameObject textObject = (GameObject)Instantiate(textPrefab, new Vector3(x, y, 20) + Vector3.up * 2f, Quaternion.identity);  // Position the text slightly above the cube
 
-                TextMesh textMesh = textObject.AddComponent<TextMesh>();
-                textMesh.text = name;
-                textMesh.fontSize = 1;
-                textMesh.color = Color.white;
             }
         }
     }

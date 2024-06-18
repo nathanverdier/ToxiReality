@@ -6,6 +6,7 @@
         "Project.Scripts.StartMessage",
         "Project.Scripts.Photo",
         "Project.Scripts",
+        "UnityEngine",
         "MixedReality.Toolkit.UXCore"
     ],
     "includePlatforms": [],

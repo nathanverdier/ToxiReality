@@ -9,18 +9,6 @@ public class PhotoCaptureObjectInitializer : MonoBehaviour
     public static PhotoCaptureObjectInitializer Instance { get; private set; }
     public PhotoCapture photoCaptureObject = null;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
     void Start()
     {
         // check camera permission
@@ -40,7 +28,7 @@ public class PhotoCaptureObjectInitializer : MonoBehaviour
         PhotoCapture.CreateAsync(false, OnCaptureObjectCreated);
     }
 
-    void OnCaptureObjectCreated(PhotoCapture captureObject)
+    private void OnCaptureObjectCreated(PhotoCapture captureObject)
     {
         photoCaptureObject = captureObject;
 

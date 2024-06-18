@@ -17,7 +17,7 @@ namespace Assets.Scripts.Photo
 
         private async Task<byte[]> LoadImageData()
         {
-            string imagePath = "C:/Users/lucie/Pictures/Dowloads/coucoulol.jpg";
+            string imagePath = "C:/Users/lucie/Downloads/Snapchat-1209362483.jpg";
 
             if (File.Exists(imagePath))
             {
