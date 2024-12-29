@@ -10,7 +10,7 @@ You will also find a guide to recreate the project. It is not really complicated
 
 
 ## The project
-Here are the three parts of the project.
+Here are the four parts of the project.
 
 ### Documentation
 ![Toxi_Doc](https://github.com/nathanverdier/ToxiDoc)
